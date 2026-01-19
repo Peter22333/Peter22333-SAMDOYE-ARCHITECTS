@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamDoye Architects Concept</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">SAMDOYE ARCHITECTS</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="studio.html">Studio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- HAMBURGER -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="studio.html">Studio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="nexus-contact-page">
+        <div class="nx-sidebar-text">EST. 2022 — ARCHITECTURE STUDIO</div>
+        <div class="nx-container">
+            <main>
+                <h1 class="nx-main-title">Get in Touch</h1>
+                <div class="nx-contact-grid">
+                    <div class="nx-info-column">
+                        <div class="nx-section">
+                            <p class="nx-label">VISIT US</p>
+                            <p class="nx-text">G15, Coca-Cola Street<br>Ijagbo, Kwara Statey</p>
+                        </div>
+                        <div class="nx-map-box">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1491.284128102774!2d4.737165794680856!3d8.180631626999284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1037c0bb20d12d1f%3A0xe6f1d2a69492c8a4!2sIjagbo%20Community%20Health%20Centre!5e1!3m2!1sen!2sng!4v1767986133931!5m2!1sen!2sng"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="nx-section">
+                            <p class="nx-label">CONTACT</p>
+                            <p class="nx-text"><a href="mailto:adeyemisamuel100@gmail.com?subject=Project Inquiry"
+                                    class="nx-link">adeyemisamuel100@gmail.com</a></p>
+                            <p class="nx-text"><a href="tel:+2348102834818" class="nx-link">Phone Call</a></p>
+                            <p class="nx-text"><a href="https://wa.me/2348102834818" target="_blank"
+                                    class="nx-link">Chat on WhatsApp</a></p>
+                        </div>
+                    </div>
+
+                    <div class="nx-form-column">
+                        <div class="nx-section">
+                            <p class="nx-label">NEW BUSINESS</p>
+                            <p class="nx-form-intro">Looking to start a new project? Fill out the form below.</p>
+                        </div>
+
+                        <form class="nx-form" id="contactForm">
+                            <div id="formStatus"
+                                style="display:none; margin-bottom: 20px; font-size: 14px; font-weight: 500;"></div>
+
+                            <input type="text" id="name" class="nx-input" placeholder="Your Name" required>
+                            <input type="email" id="email" class="nx-input" placeholder="Email Address" required>
+
+                            <div class="nx-type-selector">
+                                <p class="nx-label">PROJECT TYPE</p>
+                                <div class="nx-type-btns">
+                                    <input type="hidden" id="project_type" value="Residential">
+
+                                    <button type="button" class="nx-type-btn nx-btn-active"
+                                        onclick="setProjectType('Residential', this)">Residential</button>
+                                    <button type="button" class="nx-type-btn"
+                                        onclick="setProjectType('Commercial', this)">Commercial</button>
+                                    <button type="button" class="nx-type-btn"
+                                        onclick="setProjectType('Cultural', this)">Cultural</button>
+                                    <button type="button" class="nx-type-btn"
+                                        onclick="setProjectType('Other', this)">Other</button>
+                                </div>
+                            </div>
+
+                            <textarea id="message" class="nx-input nx-textarea"
+                                placeholder="Tell us about your project..." required></textarea>
+                            <button type="submit" class="nx-submit-btn">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="nx-footer">
+                <div class="nx-footer-left">
+                    <p>SAMDOYE ARCHITECTS</p>
+                    <p class="nx-copyright">© 2025. All rights reserved.</p>
+                </div>
+                <div class="nx-footer-right">
+                    <a href="https://www.instagram.com/adeyemisamueljace">Instagram</a>
+                    <a href="https://www.tiktok.com/@sam_adeyemii">Tiktok</a>
+                    <a href="https://x.com/sammdoye">X</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

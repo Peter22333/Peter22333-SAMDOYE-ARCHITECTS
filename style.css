@@ -1,0 +1,1625 @@
+/* --- 1. GLOBAL RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --bg-cream: #dedcd9;
+    --text-dark: #1A1A1A;    /* Same as --text-main */
+    --text-main: #1A1A1A;
+    --text-light: #555555;   /* Same as --text-muted */
+    --text-muted: #555555;
+    --accent-grey: #A0A0A0;
+    --border-color: #E0DED9;
+
+    /* Typography */
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Layout */
+    --section-padding: 120px 0; /* Vertical padding for sections */
+}
+
+body {
+    font-family: var(--font-stack);
+    color: var(--text-dark);
+    background-color: var(--bg-cream);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Helper class to keep content centered and aligned across the whole site */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #faf7f3;
+    color: #111;
+}
+
+
+/* --- ALIGNED NAVIGATION STYLES --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px; /* Aligned with .nx-container padding */
+    background: #F6F4F0; /* Matches your body background */
+    border-bottom: 1px solid #e5e7eb; /* Subtle architecture line */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 14px; /* Matches your Nexus logo size */
+    font-weight: 500;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.5; /* Minimalist hover effect */
+}
+
+/* Right side (Buttons) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-buttons a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+.btn-outline:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* HAMBURGER (Architecture Minimalist Style) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 1px; /* Thinner lines for luxury feel */
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #F6F4F0;
+    padding: 40px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .navbar { padding: 20px 30px; }
+    .nav-links, .nav-buttons { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu.active { display: flex; }
+}
+
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 80px 64px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 32px;
+}
+
+.hero-text p {
+    max-width: 420px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 48px;
+}
+
+.scroll {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+/* IMAGE */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+}
+
+.header {
+    padding: 20px 24px;
+}
+
+.nav {
+    position: absolute;
+    top: 70px;
+    right: 24px;
+    background: #faf7f3;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.nav.active {
+    display: flex;
+}
+
+.hamburger {
+    display: flex;
+}
+
+.hero-text h1 {
+font-size: 40px;
+}
+}
+/* --- 3. SELECTED PROJECTS SECTION --- */
+.projects-section {
+    padding: var(--section-padding);
+    background: #EBEBEB;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-grey);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 500;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.project-count {
+    font-size: 0.7rem;
+    color: var(--accent-grey);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.view-all-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--text-main);
+}
+.sm-project-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Optional: Make sure the grid doesn't break when items are hidden */
+.sm-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: start;
+}
+
+/* Asymmetric Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; 
+    column-gap: 100px;
+    row-gap: 150px;
+}
+
+/* Staggering the right column */
+.card-right {
+    margin-top: 180px; 
+}
+
+.project-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background-color: #eee; /* Placeholder color while loading */
+}
+
+.project-image-wrapper.tall {
+    aspect-ratio: 4 / 5.5; 
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.meta-label { color: var(--accent-grey); }
+.meta-details { color: #888; }
+
+.project-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.project-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.project-tags span {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #999;
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+}
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    padding: 140px 0;
+    background-color: var(--bg-cream);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Header Layout */
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.services-title-block {
+    flex: 1;
+}
+
+.section-main-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 20px;
+}
+
+.services-intro-block {
+    flex: 0 1 400px; /* Limits the width of the intro text on the right */
+    padding-top: 60px; /* Aligns it lower than the main heading */
+}
+
+.services-intro-block p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    column-gap: 120px;
+    row-gap: 80px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-name {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.service-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+/* Metadata Styling (PROCESS / FOR) */
+.service-metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.meta-row {
+    display: grid;
+    grid-template-columns: 80px 1fr; /* Fixed width for the labels */
+    align-items: start;
+}
+
+.meta-key {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-grey);
+    letter-spacing: 1px;
+}
+
+.meta-val {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #888;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* --- DESIGN PROCESS SECTION --- */
+.process-section {
+    padding: 140px 0;
+    background-color: #EBEBEB; /* The subtle grey background from the image */
+    color: var(--text-dark);
+}
+
+.process-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.process-header-left {
+    flex: 1;
+}
+
+.process-header-right {
+    flex: 0 0 350px;
+    padding-top: 50px; /* Aligns with the top of the header text */
+}
+
+.process-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Main Layout Split */
+.process-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 40/60 split */
+    gap: 100px;
+}
+
+.process-intro-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+/* Steps List Styling */
+.process-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.process-step-item {
+    display: flex;
+    gap: 25px;
+}
+
+.step-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-dark);
+    border-radius: 50%;
+    margin-top: 6px; /* Aligns with the first line of text */
+    flex-shrink: 0;
+}
+
+.step-number {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-grey);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.step-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.step-details {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 550px;
+}
+
+/* --- TESTIMONIALS & CLIENTS SECTION --- */
+.trust-section {
+    padding: 140px 0;
+    background-color: var(--bg-cream);
+    border-top: 1px solid var(--border-color);
+}
+
+.trust-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.trust-header-right {
+    flex: 0 0 320px;
+    padding-top: 55px; /* Alignment with title top */
+}
+
+.trust-intro {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Content Grid: 45% Quotes / 55% Clients */
+.trust-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 120px;
+}
+
+/* Testimonials Styling */
+.trust-quotes-col {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.quote-text {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    font-weight: 450;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.quote-author {
+    font-size: 0.8rem;
+    color: var(--accent-grey);
+}
+
+/* Client Grid Styling */
+.client-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns within the client side */
+    gap: 40px 60px;
+    margin-bottom: 60px;
+}
+
+.client-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.client-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.client-type {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-grey);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.client-footer-note {
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .trust-header {
+        flex-direction: column;
+    }
+
+    .trust-header-right {
+        flex: 1;
+        padding-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .trust-content-grid {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .client-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+/* --- FOOTER SECTION --- */
+.site-footer {
+    padding: 50px 0 60px 0; /* Extra top padding for that 'Grand Finale' feel */
+    background-color: var(--bg-cream);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 700px;
+    margin: 0 auto 120px auto; /* Centers the CTA block */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.footer-subtext {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 50px;
+}
+
+/* The Black 'Get In Touch' Button */
+.footer-btn {
+    background-color: var(--text-dark);
+    color: white;
+    text-decoration: none;
+    padding: 20px 45px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-btn:hover {
+    opacity: 0.9;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+    font-size: 0.75rem;
+    color: var(--accent-grey);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-socials a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: var(--accent-grey);
+}
+
+/* --- FINAL LAYOUT FIXES (Global) --- */
+/* Ensures all sections have a consistent flow */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smooth Scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-heading {
+        font-size: 2.2rem;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .services-header {
+        flex-direction: column;
+        margin-bottom: 60px;
+    }
+
+    .services-intro-block {
+        flex: 1;
+        padding-top: 30px;
+        max-width: 100%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column on tablet/mobile */
+        column-gap: 0;
+        row-gap: 60px;
+    }
+    
+    .meta-row {
+        grid-template-columns: 100px 1fr;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .process-header {
+        flex-direction: column;
+    }
+    
+    .process-header-right {
+        flex: 1;
+        padding-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .process-content-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .process-intro-text p {
+        max-width: 100%;
+    }
+}
+
+/* --- 4. COMBINED RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+    .container { padding: 0 40px; }
+    
+    /* Hero Adjustments */
+    .hero-section { flex-direction: column; }
+    .hero-content-left { order: 2; padding: 60px 40px; min-height: 60vh; }
+    .hero-image-right { order: 1; height: 50vh; }
+    
+    /* Projects Grid Adjustments */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        row-gap: 80px;
+    }
+    .card-right { margin-top: 0; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .header-right { text-align: left; }
+}
+
+@media (max-width: 600px) {
+    .site-nav { display: none; } /* Hide nav on mobile for simplicity */
+    h1 { font-size: 2.2rem; }
+    .section-title { font-size: 1.8rem; }
+}
+
+
+
+/* WORKS */
+.works {
+  padding: 80px 64px;
+}
+
+.works h1 {
+  font-size: 56px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.filters button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #777;
+  cursor: pointer;
+}
+
+.filters .active {
+  color: #111;
+  border-bottom: 1px solid #111;
+  padding-bottom: 4px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px 64px;
+}
+
+.item {
+  overflow: hidden;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.item:hover img {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 64px;
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-links a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: #666;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .header {
+    padding: 24px;
+  }
+
+  .works {
+    padding: 48px 24px;
+  }
+
+  .works h1 {
+    font-size: 40px;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 24px;
+  }
+}
+
+/* Container and Scoping */
+.nexus-contact-page {
+    background-color: #F6F4F0;
+    color: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 60px 0;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.nexus-contact-page * {
+    box-sizing: border-box;
+}
+
+.nexus-contact-page .nx-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+/* Vertical Sidebar Label */
+.nexus-contact-page .nx-sidebar-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-180deg);
+    writing-mode: vertical-rl;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+/* Header */
+.nexus-contact-page .nx-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.nexus-contact-page .nx-logo {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+.nexus-contact-page .nx-nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.nexus-contact-page .nx-nav a.nx-active {
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* Title */
+.nexus-contact-page .nx-main-title {
+    font-size: 5rem;
+    font-weight: 400;
+    margin-bottom: 80px;
+    letter-spacing: -2px;
+}
+
+/* Layout Grid */
+.nexus-contact-page .nx-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+}
+
+/* General Elements */
+.nexus-contact-page .nx-section {
+    margin-bottom: 45px;
+    text-decoration: none;
+}
+
+.nexus-contact-page .nx-label {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.nexus-contact-page .nx-text, 
+.nexus-contact-page .nx-form-intro {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Map Image */
+.nexus-contact-page .nx-map-box {
+    margin-bottom: 45px;
+}
+
+.nexus-contact-page .nx-map-box img {
+    width: 100%;
+    display: block;
+    filter: grayscale(1);
+    mix-blend-mode: multiply;
+}
+
+/* Form Styles */
+.nexus-contact-page .nx-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    font-size: 18px;
+    margin-bottom: 40px;
+    outline: none;
+    font-family: inherit;
+}
+
+.nexus-contact-page .nx-textarea {
+    height: 120px;
+    resize: none;
+    margin-top: 20px;
+}
+
+/* Project Type Selector */
+.nexus-contact-page .nx-type-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.nexus-contact-page .nx-type-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.nexus-contact-page .nx-type-btn.nx-btn-active {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Submit Button */
+.nexus-contact-page .nx-submit-btn {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 22px 55px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Footer */
+.nexus-contact-page .nx-footer {
+    margin-top: 150px;
+    border-top: 1px solid transparent; /* Keeps spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.nexus-contact-page .nx-footer-left p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.nexus-contact-page .nx-copyright {
+    color: #888;
+}
+
+.nexus-contact-page .nx-footer-right a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+/* Responsive Fix */
+@media (max-width: 1024px) {
+    .nexus-contact-page .nx-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .nexus-contact-page .nx-main-title {
+        font-size: 3.5rem;
+    }
+}
+
+/*Project css*/
+/* --- Main Container & Typography --- */
+.samdoye-portfolio-page {
+    background-color: #F6F4F0;
+    color: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 60px 0;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.samdoye-portfolio-page * { box-sizing: border-box; }
+
+.samdoye-portfolio-page .sm-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+/* --- Sidebar & Header --- */
+.samdoye-portfolio-page .sm-sidebar-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-180deg);
+    writing-mode: vertical-rl;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.samdoye-portfolio-page .sm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.samdoye-portfolio-page .sm-logo {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.samdoye-portfolio-page .sm-nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+/* --- Page Title & Filters --- */
+.samdoye-portfolio-page .sm-main-title {
+    font-size: 5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: -2px;
+}
+
+.samdoye-portfolio-page .sm-filter-nav {
+    margin-bottom: 80px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.samdoye-portfolio-page .sm-filter-link {
+    text-decoration: none;
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    transition: color 0.2s, border-color 0.2s;
+    border-bottom: 1px solid transparent;
+}
+
+.samdoye-portfolio-page .sm-filter-link:hover,
+.samdoye-portfolio-page .sm-filter-link.nx-active {
+    color: #1a1a1a;
+    border-bottom-color: #1a1a1a;
+}
+
+/* --- Project Grid Layout --- */
+.samdoye-portfolio-page .sm-project-grid {
+    display: grid;
+    /* Creates two columns, right one slightly wider */
+    grid-template-columns: 1fr 1.15fr;
+    /* Defines rows based on content height */
+    grid-template-rows: repeat(5, auto);
+    gap: 60px;
+    margin-bottom: 150px;
+}
+
+/* Individual Project Item Styles */
+.samdoye-portfolio-page .sm-project-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures image zoom stays within box */
+    position: relative;
+}
+
+.samdoye-portfolio-page .sm-project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill their grid space */
+    display: block;
+    transition: transform 0.5s ease; /* Smooth zoom effect */
+}
+
+/* Hover Effect */
+.samdoye-portfolio-page .sm-project-item:hover img {
+    transform: scale(1.03);
+}
+
+/* --- Explicit Grid Placement for Exact Layout --- */
+/* Left Column Items */
+.samdoye-portfolio-page .item-1 { grid-column: 1; grid-row: 1 / 3; }
+.samdoye-portfolio-page .item-3 { grid-column: 1; grid-row: 3 / 4; }
+.samdoye-portfolio-page .item-4 { grid-column: 1; grid-row: 4 / 6; }
+
+/* Right Column Items */
+.samdoye-portfolio-page .item-2 { grid-column: 2; grid-row: 1 / 4; }
+.samdoye-portfolio-page .item-5 { grid-column: 2; grid-row: 4 / 5; }
+.samdoye-portfolio-page .item-6 { grid-column: 2; grid-row: 5 / 6; }
+
+
+/* --- Footer --- */
+.samdoye-portfolio-page .nx-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.samdoye-portfolio-page .nx-footer-left p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.samdoye-portfolio-page .sm-copyright { color: #888; margin-top: 5px; }
+
+.samdoye-portfolio-page .sm-footer-right a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .samdoye-portfolio-page .sm-container { padding: 0 40px; }
+    .samdoye-portfolio-page .sm-main-title { font-size: 3.5rem; }
+    .samdoye-portfolio-page .sm-project-grid { gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .samdoye-portfolio-page .sm-sidebar-text { display: none; }
+    .samdoye-portfolio-page .sm-container { padding: 0 20px; }
+    
+    /* Collapses grid to a single column on mobile */
+    .samdoye-portfolio-page .sm-project-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    /* Resets explicit placement for single column flow */
+    .samdoye-portfolio-page .item-1, .samdoye-portfolio-page .item-2,
+    .samdoye-portfolio-page .item-3, .samdoye-portfolio-page .item-4,
+    .samdoye-portfolio-page .item-5, .samdoye-portfolio-page .item-6 {
+        grid-column: auto;
+        grid-row: auto;
+        height: 400px; /* Fixed height for consistency on mobile */
+    }
+}
+
+/*Project details */
+/* Container Scope */
+.nx-detail-page {
+    background-color: #F6F4F0;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.nx-detail-page .nx-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+/* Sidebar Branding */
+.nx-detail-page .nx-sidebar-text {
+    position: fixed;
+    left: 20px;
+    bottom: 100px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+/* Header Styles */
+.nx-detail-page .nx-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.nx-detail-page .nx-logo { font-weight: 500; letter-spacing: 0.5px; }
+
+.nx-detail-page .nx-nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.nx-detail-page .nx-nav a.nx-active { border-bottom: 1px solid #1a1a1a; }
+
+/* Hero Section */
+.nx-detail-page .nx-hero {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.nx-detail-page .nx-hero img {
+    width: 100%;
+    height: 70vh;
+    object-fit:contain;
+}
+
+/* Two-Column Grid */
+.nx-detail-page .nx-detail-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 120px;
+    align-items: start;
+}
+
+/* Left Column: Info */
+.nx-detail-page .nx-info-sidebar {
+    position: sticky;
+    top: 60px;
+}
+
+.nx-detail-page .nx-project-title {
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.nx-detail-page .nx-location {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.nx-detail-page .nx-metadata-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+    margin-bottom: 60px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+.nx-detail-page .nx-meta-item { display: flex; flex-direction: column; }
+
+.nx-detail-page .nx-meta-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.nx-detail-page .nx-meta-val { font-size: 14px; }
+
+.nx-detail-page .nx-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.nx-detail-page .nx-description p { margin-bottom: 20px; }
+
+/* Right Column: Gallery */
+.nx-detail-page .nx-gallery-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.nx-detail-page .nx-gallery-item img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.nx-detail-page figcaption {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* Footer */
+.nx-detail-page .nx-footer {
+    margin-top: 150px;
+    padding-top: 40px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nx-detail-page .nx-footer-left p { font-size: 12px; margin: 0; }
+.nx-detail-page .nx-copyright { color: #888; margin-top: 5px; }
+.nx-detail-page .nx-footer-right a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .nx-detail-page .nx-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .nx-detail-page .nx-info-sidebar { position: static; }
+    .nx-detail-page .nx-container { padding: 0 30px; }
+}
+
+/* Container Scope */
+.nx-coming-soon-page {
+    background-color: #F6F4F0;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 60px 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.nx-coming-soon-page * {
+    box-sizing: border-box;
+}
+
+.nx-coming-soon-page .nx-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 60px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Branding */
+.nx-coming-soon-page .nx-sidebar-text {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-180deg);
+    writing-mode: vertical-rl;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+/* Header Styles */
+.nx-coming-soon-page .nx-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.nx-coming-soon-page .nx-logo { font-weight: 500; letter-spacing: 0.5px; }
+
+.nx-coming-soon-page .nx-nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.nx-coming-soon-page .nx-nav a.nx-active { border-bottom: 1px solid #1a1a1a; }
+
+/* Center Content */
+.nx-coming-soon-page .nx-coming-soon-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nx-coming-soon-page .nx-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.nx-coming-soon-page .nx-main-title {
+    font-size: 84px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: -3px;
+}
+
+.nx-coming-soon-page .nx-message {
+    font-size: 18px;
+    color: #444;
+    max-width: 400px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.nx-coming-soon-page .nx-divider {
+    width: 40px;
+    height: 1px;
+    background: #1a1a1a;
+    margin: 0 auto 40px auto;
+}
+
+.nx-coming-soon-page .nx-back-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 5px;
+    transition: opacity 0.3s;
+}
+
+.nx-coming-soon-page .nx-back-btn:hover {
+    opacity: 0.6;
+}
+
+/* Footer Styles */
+.nx-coming-soon-page .nx-footer {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nx-coming-soon-page .nx-footer-left p { font-size: 12px; margin: 0; }
+.nx-coming-soon-page .nx-copyright { color: #888; margin-top: 5px; }
+.nx-coming-soon-page .nx-footer-right a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nx-coming-soon-page .nx-main-title { font-size: 54px; }
+    .nx-coming-soon-page .nx-sidebar-text { display: none; }
+    .nx-coming-soon-page .nx-container { padding: 0 30px; }
+}
